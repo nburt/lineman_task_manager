@@ -6,6 +6,11 @@ module Api
       render json: tasks
     end
 
+    def show
+      task = Task.find(params[:id])
+      render json: task
+    end
+
     def create
       task = Task.create!(name: params[:name], description: params[:description])
       render json: task

@@ -63,6 +63,25 @@ describe "CRUDing Tasks" do
     end
   end
 
+  describe "GET /api/tasks/:id" do
+    it "can get a single task" do
+      task = create_task
+
+      get "/api/tasks/#{task.id}"
+
+      expected_response = {
+        id: task.id,
+        name: task.name,
+        description: task.description,
+        created_at: task.created_at,
+        updated_at: task.updated_at
+      }.to_json
+
+      expect(response.status).to eq 200
+      expect(response.body).to eq expected_response
+    end
+  end
+
   describe "PUT /api/tasks/:id" do
     it "will update a task and return the json for the updated task" do
       task = create_task
