@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <title><%= pkg.name %></title>
 
     <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
+    <base href="/">
   </head>
   <body>
     <script type="text/javascript" src="<%= js %>"></script>
+    <main>
+      <ng-view></ng-view>
+    </main>
   </body>
 </html>
